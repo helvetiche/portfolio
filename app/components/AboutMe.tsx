@@ -4,17 +4,11 @@ import { useEffect, useState, useRef } from 'react';
 import { FaBriefcase, FaCode, FaStar, FaLaptopCode, FaProjectDiagram, FaEnvelope, FaCheckCircle, FaUser } from 'react-icons/fa';
 
 export default function AboutMe() {
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [visibleMessages, setVisibleMessages] = useState<number[]>([]);
   const messageRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const updateScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const progress = Math.max(0, Math.min(1, scrollY / windowHeight));
-      setScrollProgress(progress);
-
       messageRefs.current.forEach((ref, index) => {
         if (ref) {
           const rect = ref.getBoundingClientRect();
@@ -36,8 +30,6 @@ export default function AboutMe() {
     <section 
       className="min-h-screen bg-white relative w-full overflow-x-hidden"
       style={{
-        transform: `translateY(${(1 - scrollProgress) * 100}vh)`,
-        transition: 'transform 0.1s ease-out',
         backgroundImage: `
           repeating-linear-gradient(
             0deg,
@@ -57,7 +49,7 @@ export default function AboutMe() {
         backgroundSize: '20px 20px'
       }}
     >
-      <div className="container mx-auto px-4 md:px-8 py-12 md:py-20 max-w-full overflow-x-hidden">
+      <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-32 py-20 max-w-full overflow-x-hidden">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           <div className="w-full lg:w-64 lg:flex-shrink-0">
             <div className="lg:sticky lg:top-20">

@@ -3,12 +3,12 @@
 import DitherBackground from './DitherBackground';
 import CardSwap, { Card } from '../../components/CardSwap';
 import MobileCardStack from './MobileCardStack';
-import { SiNextdotjs, SiNodedotjs, SiReact, SiFirebase, SiGooglecloud, SiGithub, SiPostgresql, SiMongodb } from 'react-icons/si';
+import { SiNextdotjs, SiNodedotjs, SiReact, SiFirebase, SiGooglecloud, SiGithub, SiPostgresql, SiMongodb, SiLinkedin, SiFacebook, SiInstagram, SiTiktok } from 'react-icons/si';
 import { FaClock, FaComments, FaLightbulb, FaBrain, FaPalette, FaHeart, FaCheckCircle, FaHandHoldingHeart, FaBriefcase, FaProjectDiagram, FaUsers, FaHandshake, FaCode, FaSitemap } from 'react-icons/fa';
 
 export default function Hero() {
   return (
-    <section className="min-h-screen bg-black fixed inset-0 z-0 w-screen overflow-hidden">
+    <section className="min-h-screen bg-black relative z-0 w-screen overflow-hidden">
       <div className="relative w-full h-full min-h-screen overflow-hidden">
         <div className="absolute inset-0 w-full h-full">
           <DitherBackground />
@@ -23,6 +23,43 @@ export default function Hero() {
         <div className="hidden md:block absolute bottom-4 md:bottom-8 right-4 md:right-8 text-6xl md:text-9xl text-black font-black z-10">+</div>
         
         <div className="md:hidden relative z-20 flex flex-col px-6 py-12 min-h-screen max-w-full overflow-x-hidden">
+          <div className="flex gap-3 mb-4">
+            <a href="https://github.com/helvetiche" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-all active:scale-95 relative group">
+              <SiGithub size={20} />
+              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1.5 bg-white text-black text-xs font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none border-2 border-gray-900 shadow-lg flex items-center gap-1.5">
+                <SiGithub size={12} />
+                @helvetiche
+              </span>
+            </a>
+            <a href="https://www.linkedin.com/in/nasche-del-ponso-040b3b277/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-all active:scale-95 relative group">
+              <SiLinkedin size={20} />
+              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1.5 bg-white text-black text-xs font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none border-2 border-gray-900 shadow-lg flex items-center gap-1.5">
+                <SiLinkedin size={12} />
+                Nasche Del Ponso
+              </span>
+            </a>
+            <a href="https://www.facebook.com/nasche.del.ponso" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-all active:scale-95 relative group">
+              <SiFacebook size={20} />
+              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1.5 bg-white text-black text-xs font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none border-2 border-gray-900 shadow-lg flex items-center gap-1.5">
+                <SiFacebook size={12} />
+                nasche.del.ponso
+              </span>
+            </a>
+            <a href="https://www.instagram.com/ponieta.gg" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-all active:scale-95 relative group">
+              <SiInstagram size={20} />
+              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1.5 bg-white text-black text-xs font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none border-2 border-gray-900 shadow-lg flex items-center gap-1.5">
+                <SiInstagram size={12} />
+                @ponieta.gg
+              </span>
+            </a>
+            <a href="https://www.tiktok.com/@helvetiche" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-all active:scale-95 relative group">
+              <SiTiktok size={20} />
+              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1.5 bg-white text-black text-xs font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none border-2 border-gray-900 shadow-lg flex items-center gap-1.5">
+                <SiTiktok size={12} />
+                @helvetiche
+              </span>
+            </a>
+          </div>
           <h1 className="text-4xl font-bold text-white mb-4 uppercase break-words" style={{ fontFamily: "'Product Sans', sans-serif" }}>
             Nasche Del Ponso
           </h1>
@@ -45,6 +82,43 @@ export default function Hero() {
         </div>
 
         <div className="hidden md:block absolute left-20 bottom-20 max-w-2xl z-10">
+          <div className="flex gap-4 mb-4">
+            <a href="https://github.com/helvetiche" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-all hover:scale-110 relative group">
+              <SiGithub size={24} />
+              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-2 bg-white text-black text-sm font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none border-2 border-gray-900 shadow-lg flex items-center gap-2">
+                <SiGithub size={16} />
+                @helvetiche
+              </span>
+            </a>
+            <a href="https://www.linkedin.com/in/nasche-del-ponso-040b3b277/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-all hover:scale-110 relative group">
+              <SiLinkedin size={24} />
+              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-2 bg-white text-black text-sm font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none border-2 border-gray-900 shadow-lg flex items-center gap-2">
+                <SiLinkedin size={16} />
+                Nasche Del Ponso
+              </span>
+            </a>
+            <a href="https://www.facebook.com/nasche.del.ponso" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-all hover:scale-110 relative group">
+              <SiFacebook size={24} />
+              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-2 bg-white text-black text-sm font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none border-2 border-gray-900 shadow-lg flex items-center gap-2">
+                <SiFacebook size={16} />
+                nasche.del.ponso
+              </span>
+            </a>
+            <a href="https://www.instagram.com/ponieta.gg" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-all hover:scale-110 relative group">
+              <SiInstagram size={24} />
+              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-2 bg-white text-black text-sm font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none border-2 border-gray-900 shadow-lg flex items-center gap-2">
+                <SiInstagram size={16} />
+                @ponieta.gg
+              </span>
+            </a>
+            <a href="https://www.tiktok.com/@helvetiche" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-all hover:scale-110 relative group">
+              <SiTiktok size={24} />
+              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-2 bg-white text-black text-sm font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none border-2 border-gray-900 shadow-lg flex items-center gap-2">
+                <SiTiktok size={16} />
+                @helvetiche
+              </span>
+            </a>
+          </div>
           <h1 className="text-6xl font-bold text-white mb-4 uppercase" style={{ fontFamily: "'Product Sans', sans-serif" }}>
             Nasche Del Ponso
           </h1>

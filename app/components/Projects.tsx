@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
-import { FaGithub, FaExternalLinkAlt, FaFolderOpen, FaMicrochip, FaFileAlt, FaAward, FaCodeBranch, FaSearch } from 'react-icons/fa';
+import { useState, useEffect, useMemo, useRef } from 'react';
+import { FaFolderOpen, FaMicrochip, FaFileAlt, FaAward, FaCodeBranch, FaSearch } from 'react-icons/fa';
 import { SiNextdotjs, SiNodedotjs, SiReact, SiFirebase, SiGooglecloud, SiGithub, SiPostgresql, SiMongodb, SiTypescript, SiJavascript, SiTailwindcss, SiDocker, SiKubernetes, SiAmazon, SiVercel, SiPython } from 'react-icons/si';
 import ProjectCard from './ProjectCard';
+import { gsap } from 'gsap';
 
 interface Project {
   id: string;
@@ -37,22 +38,12 @@ export default function Projects() {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
     loadProjects();
   }, []);
-
-  const loadProjects = async () => {
-    try {
-      const response = await fetch('/api/projects');
-      const data = await response.json();
-      setProjects(data.projects || []);
-    } catch (error) {
-      console.error('Failed to load projects:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const availableTags = useMemo(() => {
     const tagsSet = new Set<string>();
@@ -74,6 +65,44 @@ export default function Projects() {
     });
   }, [projects, searchQuery, selectedTags]);
 
+  useEffect(() => {
+    if (!loading && filteredProjects.length > 0 && !hasAnimated.current) {
+      cardsRef.current.forEach((card, index) => {
+        if (card) {
+          gsap.fromTo(
+            card,
+            {
+              opacity: 0,
+              y: 100,
+              filter: 'blur(10px)'
+            },
+            {
+              opacity: 1,
+              y: 0,
+              filter: 'blur(0px)',
+              duration: 0.8,
+              ease: 'power3.out',
+              delay: index * 0.05
+            }
+          );
+        }
+      });
+      hasAnimated.current = true;
+    }
+  }, [loading, filteredProjects]);
+
+  const loadProjects = async () => {
+    try {
+      const response = await fetch('/api/projects');
+      const data = await response.json();
+      setProjects(data.projects || []);
+    } catch (error) {
+      console.error('Failed to load projects:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const toggleTag = (tag: string) => {
     setSelectedTags(prev => 
       prev.includes(tag) 
@@ -84,7 +113,7 @@ export default function Projects() {
 
   return (
     <section 
-      className="min-h-screen bg-white relative z-10 w-full overflow-x-hidden py-20"
+      className="min-h-screen bg-white relative z-10 w-full overflow-x-hidden"
       style={{
         backgroundImage: `
           repeating-linear-gradient(
@@ -105,7 +134,7 @@ export default function Projects() {
         backgroundSize: '20px 20px'
       }}
     >
-      <div className="container mx-auto px-4 md:px-8 max-w-full overflow-x-hidden">
+      <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-32 py-20 max-w-full overflow-x-hidden">
         <h2 className="text-4xl md:text-6xl font-bold text-black mb-6 uppercase" style={{ fontFamily: "'Product Sans', sans-serif" }}>
           Projects
         </h2>
@@ -128,7 +157,7 @@ export default function Projects() {
           </button>
         </div>
 
-        <p className="text-base md:text-lg font-mono text-black mb-12 text-justify max-w-[50%]">
+        <p className="text-base md:text-lg font-mono text-black mb-12 text-justify w-full">
           Everything I build that is publicly available. Some projects are not available for preview due to client confidentiality agreements and non-disclosure requirements that protect sensitive business information.
         </p>
 
@@ -183,8 +212,15 @@ export default function Projects() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {filteredProjects.map((project) => (
-              <ProjectCard key={project.id}>
+            {filteredProjects.map((project, index) => (
+              <div 
+                key={project.id} 
+                ref={el => { cardsRef.current[index] = el; }}
+                style={{ opacity: 0 }}
+                className="h-full"
+              >
+                <ProjectCard>
+                <div className="flex flex-col min-h-[600px]">
                 <div className="flex items-center gap-2 p-3 border-b-2 border-black">
                   <div className="w-3 h-3 bg-black border border-black" style={{ opacity: 0.3 }}></div>
                   <div className="w-3 h-3 bg-black border border-black" style={{ opacity: 0.2 }}></div>
@@ -200,14 +236,14 @@ export default function Projects() {
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-60" />
                   </div>
                 )}
-                <div className="p-4">
+                <div className="p-4 flex-1 flex flex-col">
                   <h3 className="text-xl font-bold text-black mb-2 uppercase" style={{ fontFamily: "'Product Sans', sans-serif" }}>
                     {project.title}
                   </h3>
-                  <p className="text-sm font-mono text-black mb-4 text-justify">
+                  <p className="text-sm font-mono text-black mb-4 text-justify line-clamp-4 flex-1">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mt-auto">
                     {project.tags.map((tag, idx) => {
                       const Icon = tagIcons[tag];
                       return (
@@ -222,7 +258,9 @@ export default function Projects() {
                     })}
                   </div>
                 </div>
+                </div>
               </ProjectCard>
+              </div>
             ))}
           </div>
         )}
