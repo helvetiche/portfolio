@@ -6,8 +6,8 @@ import { FaClock, FaComments, FaLightbulb, FaHandHoldingHeart, FaBriefcase, FaPr
 
 export default function MobileCardStack() {
   return (
-    <div className="relative w-full flex justify-center items-center mt-8" style={{ height: '320px' }}>
-      <div style={{ position: 'relative', width: '100%', height: '280px' }}>
+    <div className="relative w-full flex justify-center items-center mt-8" style={{ height: '240px' }}>
+      <div style={{ position: 'relative', width: '100%', height: '200px' }}>
         <style jsx>{`
           div :global(.card-swap-container) {
             position: relative !important;
@@ -20,7 +20,7 @@ export default function MobileCardStack() {
         `}</style>
         <CardSwap
           width="100%"
-          height={280}
+          height={200}
           cardDistance={0}
           verticalDistance={20}
           delay={6000}

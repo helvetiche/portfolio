@@ -34,13 +34,30 @@ export default function AboutMe() {
 
   return (
     <section 
-      className="min-h-screen bg-white relative z-10"
+      className="min-h-screen bg-white relative w-full overflow-x-hidden"
       style={{
         transform: `translateY(${(1 - scrollProgress) * 100}vh)`,
-        transition: 'transform 0.1s ease-out'
+        transition: 'transform 0.1s ease-out',
+        backgroundImage: `
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.03) 2px,
+            rgba(0, 0, 0, 0.03) 4px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.03) 2px,
+            rgba(0, 0, 0, 0.03) 4px
+          )
+        `,
+        backgroundSize: '20px 20px'
       }}
     >
-      <div className="container mx-auto px-4 md:px-8 py-12 md:py-20">
+      <div className="container mx-auto px-4 md:px-8 py-12 md:py-20 max-w-full overflow-x-hidden">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           <div className="w-full lg:w-64 lg:flex-shrink-0">
             <div className="lg:sticky lg:top-20">
@@ -127,7 +144,7 @@ export default function AboutMe() {
                   </div>
                   <div className="flex-1">
                     <p className="text-xs font-bold mb-1">Client</p>
-                    <div className="bg-gray-100 border-2 border-black rounded-full px-3 md:px-4 py-2 md:py-3">
+                    <div className="bg-gray-100 border-2 border-black rounded-full px-3 md:px-4 py-2 md:py-3 inline-block max-w-fit">
                       <p className="text-xs md:text-sm">Hey! Can you help automate our workflow?</p>
                     </div>
                   </div>
@@ -171,7 +188,7 @@ export default function AboutMe() {
                   </div>
                   <div className="flex-1">
                     <p className="text-xs font-bold mb-1">Client</p>
-                    <div className="bg-gray-100 border-2 border-black rounded-full px-3 md:px-4 py-2 md:py-3">
+                    <div className="bg-gray-100 border-2 border-black rounded-full px-3 md:px-4 py-2 md:py-3 inline-block max-w-fit">
                       <p className="text-xs md:text-sm">We need something simple but effective.</p>
                     </div>
                   </div>

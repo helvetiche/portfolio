@@ -7,11 +7,15 @@
 html, body {
   scroll-snap-type: none;
   scroll-behavior: auto;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body{
   background-color: black;
   overflow-x: hidden;
+  max-width: 100vw;
+  position: relative;
 }
 
 @theme inline {
@@ -131,4 +135,13 @@ body{
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: perspective(1000px) rotateY(-5deg) rotateX(2deg) translateZ(10px);
+  box-shadow: -20px 20px 40px rgba(0, 0, 0, 0.3);
 }

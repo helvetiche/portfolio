@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# admin and write API routes
+/app/admin/
+/app/api/projects/[id]/
+/app/api/upload/

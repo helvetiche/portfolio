@@ -8,9 +8,9 @@ import { FaClock, FaComments, FaLightbulb, FaBrain, FaPalette, FaHeart, FaCheckC
 
 export default function Hero() {
   return (
-    <section className="min-h-screen bg-black md:fixed md:inset-0 z-0 relative overflow-hidden">
-      <div className="relative w-full min-h-screen">
-        <div className="absolute inset-0 md:fixed md:inset-0">
+    <section className="min-h-screen bg-black fixed inset-0 z-0 w-screen overflow-hidden">
+      <div className="relative w-full h-full min-h-screen overflow-hidden">
+        <div className="absolute inset-0 w-full h-full">
           <DitherBackground />
           <div className="absolute inset-0 pointer-events-none" style={{
             boxShadow: 'inset 0 0 200px rgba(0, 0, 0, 0.8)'
@@ -22,22 +22,22 @@ export default function Hero() {
         <div className="hidden md:block absolute bottom-4 md:bottom-8 left-4 md:left-8 text-6xl md:text-9xl text-black font-black z-10">+</div>
         <div className="hidden md:block absolute bottom-4 md:bottom-8 right-4 md:right-8 text-6xl md:text-9xl text-black font-black z-10">+</div>
         
-        <div className="md:hidden relative z-20 flex flex-col px-6 py-12 min-h-screen">
-          <h1 className="text-4xl font-bold text-white mb-4 uppercase" style={{ fontFamily: "'Product Sans', sans-serif" }}>
+        <div className="md:hidden relative z-20 flex flex-col px-6 py-12 min-h-screen max-w-full overflow-x-hidden">
+          <h1 className="text-4xl font-bold text-white mb-4 uppercase break-words" style={{ fontFamily: "'Product Sans', sans-serif" }}>
             Nasche Del Ponso
           </h1>
           <div className="flex flex-wrap gap-2 mb-4">
-            <span className="px-2 py-1 bg-white text-black text-[10px] font-mono border border-gray-50 flex items-center gap-1">
+            <span className="px-2 py-1 bg-white text-black text-[10px] font-mono border border-gray-50 flex items-center gap-1 whitespace-nowrap">
               <FaPalette />UI/UX DESIGN
             </span>
-            <span className="px-2 py-1 bg-white text-black text-[10px] font-mono border border-gray-50 flex items-center gap-1">
+            <span className="px-2 py-1 bg-white text-black text-[10px] font-mono border border-gray-50 flex items-center gap-1 whitespace-nowrap">
               <FaCode />FULL STACK ENGINEER
             </span>
-            <span className="px-2 py-1 bg-white text-black text-[10px] font-mono border border-gray-50 flex items-center gap-1">
+            <span className="px-2 py-1 bg-white text-black text-[10px] font-mono border border-gray-50 flex items-center gap-1 whitespace-nowrap">
               <FaSitemap />SYSTEM ARCHITECTURE
             </span>
           </div>
-          <p className="text-sm text-white font-mono text-justify font-light uppercase mb-8">
+          <p className="text-sm text-white font-mono text-justify font-light uppercase mb-8 break-words">
             Turning complex problems into dependable solutions through clean architecture, scalable systems, and thoughtful engineering focused on reliability and long-term maintainability.
           </p>
           
