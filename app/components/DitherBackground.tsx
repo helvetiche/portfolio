@@ -4,7 +4,7 @@ import Dither from '../../components/Dither';
 
 export default function DitherBackground() {
   return (
-    <div style={{ width: '100%', height: '100vh', position: 'relative', opacity: 0.7 }}>
+    <div style={{ width: '100%', height: '200vh', position: 'absolute', top: 0, left: 0, opacity: 0.7 }}>
       <Dither
         color={[0.5, 0.5, 0.5]}
         disableAnimation={false}
