@@ -157,6 +157,7 @@ export default function Hero() {
               <div className="w-full h-[2px] bg-gray-50"></div>
               <div className="flex flex-1">
                 <div className="relative w-1/2">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="/placeholder.jpg" alt="Project" className="w-full h-full object-cover object-center" />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black"></div>
                 </div>
@@ -201,6 +202,7 @@ export default function Hero() {
               <div className="w-full h-[2px] bg-gray-50"></div>
               <div className="flex flex-1">
                 <div className="relative w-1/2">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="/placeholder.jpg" alt="Project" className="w-full h-full object-cover object-center" />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black"></div>
                 </div>
@@ -245,6 +247,7 @@ export default function Hero() {
               <div className="w-full h-[2px] bg-gray-50"></div>
               <div className="flex flex-1">
                 <div className="relative w-1/2">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="/placeholder.jpg" alt="Project" className="w-full h-full object-cover object-center" />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black"></div>
                 </div>

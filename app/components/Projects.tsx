@@ -228,6 +228,7 @@ export default function Projects() {
                 </div>
                 {project.imageUrl && (
                   <div className="w-full overflow-hidden border-b-2 border-black relative" style={{ aspectRatio: '19/10' }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img 
                       src={project.imageUrl} 
                       alt={project.title} 
